@@ -21,5 +21,11 @@ agent any
                 echo "test my code"
             }
         }
+
+        stage('Deploy to prod'){
+            steps{
+                echo "final deployment"
+            }
+        }
     }
 }
