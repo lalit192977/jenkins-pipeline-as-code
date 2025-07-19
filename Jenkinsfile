@@ -6,19 +6,19 @@ agent any
         stage('SCM'){
             steps{
                 echo "pull my code step 1"
-                echo "pull my code step 2"
+                git 'https://github.com/lalit192977/simple-java-maven-app'
+            }
+        }
+
+        stage('Build'){
+            steps{
+                sh 'mvn clean package'
             }
         }
 
         stage('Deploy'){
             steps{
-                echo "deploy my code"
-            }
-        }
-
-        stage('Test'){
-            steps{
-                echo "test my code"
+                sh "java -jar target/*.jar"
             }
         }
 
